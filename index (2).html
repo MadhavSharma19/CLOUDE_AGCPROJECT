@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CloudTask Lite</title>
+  <link rel="stylesheet" href="style.css" />
+  <!-- Distinctive font pairing: Syne (display) + DM Sans (body) -->
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet" />
+  <!-- Phosphor icons for crisp, modern iconography -->
+  <script src="https://unpkg.com/@phosphor-icons/web@2.1.1/src/index.js" defer></script>
+</head>
+<body>
+
+  <!-- Animated background orbs (purely decorative) -->
+  <div class="bg-orb orb-1"></div>
+  <div class="bg-orb orb-2"></div>
+  <div class="bg-orb orb-3"></div>
+
+  <!-- Main glassmorphism card -->
+  <main class="card" role="main">
+
+    <!-- Header -->
+    <header class="card-header">
+      <div class="logo-row">
+        <span class="logo-icon">☁️</span>
+        <h1 class="title">CloudTask <span class="title-accent">Lite</span></h1>
+      </div>
+      <!-- Dark / Light mode toggle -->
+      <button class="mode-toggle" id="modeToggle" aria-label="Toggle theme" title="Toggle light/dark mode">
+        <i class="ph-bold ph-sun" id="modeIcon"></i>
+      </button>
+    </header>
+
+    <!-- Task input section -->
+    <section class="input-section" aria-label="Add task">
+      <div class="input-wrap">
+        <i class="ph ph-pencil-simple input-icon"></i>
+        <input
+          type="text"
+          id="taskInput"
+          class="task-input"
+          placeholder="What needs to get done?"
+          maxlength="120"
+          aria-label="New task"
+          autocomplete="off"
+        />
+      </div>
+      <button class="add-btn" id="addBtn" aria-label="Add task">
+        <i class="ph-bold ph-plus"></i>
+        <span>Add</span>
+      </button>
+    </section>
+
+    <!-- Stats bar -->
+    <div class="stats-bar">
+      <span id="taskCounter" class="task-counter">0 tasks</span>
+      <span id="doneCounter" class="done-counter">0 done</span>
+    </div>
+
+    <!-- Progress bar -->
+    <div class="progress-track" aria-hidden="true">
+      <div class="progress-fill" id="progressFill"></div>
+    </div>
+
+    <!-- Task list -->
+    <ul class="task-list" id="taskList" aria-label="Task list" aria-live="polite">
+      <!-- Tasks are injected here by script.js -->
+    </ul>
+
+    <!-- Empty state -->
+    <div class="empty-state" id="emptyState" aria-live="polite">
+      <span class="empty-icon">🚀</span>
+      <p class="empty-text">No tasks yet</p>
+      <p class="empty-sub">Add something and get moving!</p>
+    </div>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
